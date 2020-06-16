@@ -1,0 +1,65 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <form class="card" method="POST" action="/dogs">
+    <section class="avatar" style="max-height: 710px; background: url(http://source.unsplash.com/collection/3336195/400x400) no-repeat center center / cover" ></section>
+    
+    <section class="details">
+      <h3>Novo Pet</h3>
+
+      <div class="item">
+      <div>Foto</div>
+        <input 
+          type="text" 
+          name="url" 
+          placeholder="  http://"
+        >
+      </div>
+
+      <div class="item">
+      <div>Nome</div>
+        <input 
+          type="text" 
+          name="name" 
+          placeholder="  Nome do seu Pet"
+        >
+      </div>
+
+      <div class="item">
+      <div>Raça</div>
+        <input 
+          type="text" 
+          name="breed" 
+          placeholder="  Raça"
+        >
+      </div>
+      <div class="item">
+      <div>Gênero</div>
+
+        <span><input type="radio" name="gender" checked value="M">Masculino</span>
+        <span><input type="radio" name="gender" checked value="F">Feminino</span>
+      </div>
+
+      <div class="item">
+      <div>Habilidades</div>
+        <input 
+          type="text" 
+          name="abiliity" 
+          placeholder="  separe as habilidades por virgula"
+          
+        >
+      </div>
+      <div>Ultima Vacinação</div>
+      <div class="item">
+        <input 
+          type="date" 
+          name="vaccine"
+        >
+      </div>
+
+      <button type="submit">Salvar</button>
+
+    </section>
+  </form>
+
+{% endblock content %}

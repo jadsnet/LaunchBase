@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap');
+:root {
+  --texto: rgb(54, 26, 82);
+  --texto-claro: rgb(122, 84, 153);
+  --fundo: rgb(29, 7, 37);
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+body {
+  background-color: var(--fundo);
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  background-color: rgb(211, 210, 210);
+  width: 90%;
+  margin: 20px auto;
+  padding: 32px;
+  text-align: center;
+  padding: 32px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px 5px rgb(12, 8, 20);
+}
+.links {
+  font-size: 36px;
+}
+
+.links a + a {
+  margin-left: 22px;
+}
+
+.links a {
+  font-weight: normal;
+  text-decoration: none;
+  position: relative;
+  transition: 650ms ease-in-out;
+}
+.links a.active {
+ font-weight: bold;
+}
+
+.links a:hover {
+  color: var(--texto-claro);
+  font-size: 40px;
+}
+ .links a::after {
+   content: "";
+   width: 0;
+   height: 2px;
+   background-color: var(--texto-claro);
+   position: absolute;
+   left: 0;
+   bottom: -6px;
+ }
+
+.links a:hover::after {
+  width: 100%;
+  transition: width 1050ms cubic-bezier(.33,.91,.41,.01);
+}
+
+/* === CARD === */
+
+.card {
+  width: 1200px;
+  min-width: 500px;
+  height: 710px;
+  margin: 120px auto;
+  background-color: rgb(211, 210, 210);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  opacity: 0;
+  animation: aparecer 1050ms ease-in-out;
+  animation-fill-mode: forwards;
+  box-shadow: 0px 4px 8px 5px rgb(12, 8, 20);
+}
+
+@keyframes aparecer {
+  from {
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(2);
+  }
+}
+
+/* === DETAILS === */
+
+.details {
+  padding: 32px;
+}
+
+
+.details .item {
+  padding: 16px;
+  border-bottom: 1px solid var(--texto-claro);
+}
+
+
+.details .item:last-child {
+  border: none;
+  margin-top: 30px;
+}
+
+
+.details h3,
+.details .item div:nth-child(1) {
+  font-weight: normal;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+}
+
+.details .item div:nth-child(2) {
+  margin-top: 5px;
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--texto);
+  letter-spacing: 0.8px;
+}
+
+.details h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.details .item span {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+  padding: 11px;
+  margin: 10px 8px auto;
+  display: inline-block;
+  border-radius: 12px;
+  background-color: var(--texto);
+}
+
+.details .vacina {
+  padding: 3px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.details .vacina section div:nth-child(2) {
+  margin-top: 5px;
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--texto);
+  letter-spacing: 0.8px;
+
+}
+
+.vacina section img {
+  width: 100%;
+  height: 180px;
+
+  box-sizing: border-box;
+
+}
+
+/* === FORM === */
+
+input {
+  width: 100%;
+  height: 33px;
+  margin: 5px 0 auto;
+  outline: none;
+  font-weight: bold;
+  color: var(--texto);
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+input[type="radio"] {
+  width: initial;
+  height: initial;
+  margin-right: 8px;
+  outline: none;
+}
+
+input::placeholder {
+  font-size: 18px;
+  font-weight: normal;
+  
+}
+
+button[type="submit"] {
+  padding: 8px 16px;
+  margin: 20px auto;
+  width: 100%;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background-color: var(--texto);
+  outline: none;
+  border-radius: 12px;
+  transition: 350ms ease-in-out;
+  filter: brightness(100%);
+}
+
+button[type="submit"]:hover {
+  filter: brightness(75%);
+}
+
