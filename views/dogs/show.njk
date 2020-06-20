@@ -2,49 +2,52 @@
 
 {% block content %}
   <div class="card">
-    <section class="avatar" style="max-height: 820px; background: url(http://source.unsplash.com/collection/3336195/400x400) no-repeat center center / cover" ></section>
+    <section class="avatar" style="max-height: 820px; background: url({{ dog.avatar_url }}) no-repeat center center / cover" ></section>
     
     <section class="details">
       <h3>Detalhes</h3>
 
       <div class="item">
         <div>Nome do seu Pet</div>
-        <div>Iti Maria</div>
+        <div>{{ dog.name }}</div>
       </div>
 
       <div class="item">
         <div>Genero</div>
-        <div>Macho</div>
+        <div>{{ "Macho" if dog.gender == "M" else "Fêmea" }}</div>
       </div>
 
       <div class="item">
         <div>Raça</div>
-        <div>Alihasa Apso</div>
+        <div>{{ dog.breed }}</div>
       </div>
 
       <div class="item">
         <div>Habilidades</div>
-        <span>Pula-corda</span>
-        <span>Comprimenta</span>
+        {% for habilidade in dog.abiliity %}
+          <span>{{ habilidade }}</span>
+        {% endfor %}
       </div>
 
       <div class="item">
-        <div>Aniverssário</div>
-        <div>14 de Junho</div>
+        <div>Idade</div>
+        <div>{{ dog.age }}  Anos</div>
       </div>
 
       
       <div class="vacina">
         <section>
           <div>Ultima vacina</div>
-          <div>05 de março 2019</div>          
+          <div>{{ dog.vaccine }}</div>          
         </section>
         <section>
           <img src="/assets/alert-triangle.svg" alt="vacina">
         </section>
+
+        <a href="#" class="button">Editar</a>
+        <a href="#" class="button" id="delete">Deletar</a>
+
       </div>
-
-
     </section>
   </div>
 

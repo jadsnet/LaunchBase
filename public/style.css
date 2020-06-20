@@ -67,7 +67,7 @@ header {
 .card {
   width: 1200px;
   min-width: 500px;
-  height: 710px;
+  height: 820px;
   margin: 120px auto;
   background-color: rgb(211, 210, 210);
   display: grid;
@@ -145,6 +145,8 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  gap: 10px;
+ 
 }
 
 .details .vacina section div:nth-child(2) {
@@ -190,7 +192,7 @@ input::placeholder {
   
 }
 
-button[type="submit"] {
+button[type="submit"], a.button {
   padding: 8px 16px;
   margin: 20px auto;
   width: 100%;
@@ -201,11 +203,25 @@ button[type="submit"] {
   background-color: var(--texto);
   outline: none;
   border-radius: 12px;
-  transition: 350ms ease-in-out;
+  transition: 200ms ease-in-out;
   filter: brightness(100%);
 }
 
-button[type="submit"]:hover {
-  filter: brightness(75%);
+button[type="submit"], a.button:hover {
+  filter: brightness(77%);
+}
+
+a.button {
+  justify-content: center;
+  align-items: center;
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+a.button#delete {
+  background-color: rgb(82, 26, 63);
 }
 
