@@ -17,11 +17,11 @@ routes.get('/dogs/create', function(request, response) {
 
 routes.get('/dogs/:id', dogs.show);
 
-routes.get('/dogs/:id/edit', function(request, response) {
-  return response.render('dogs/edit');
-});
+routes.get('/dogs/:id/edit', dogs.edit);
 
 routes.post('/dogs', dogs.post);
+
+routes.put('/dogs', dogs.put);
 
 
 routes.get('/members', function(request, response) {

@@ -4,6 +4,7 @@
     type="url" 
     name="avatar_url" 
     placeholder="  http://"
+    value=" {{ dog.avatar_url }}"
   >
 </div>
 
@@ -13,6 +14,7 @@
     type="text" 
     name="name" 
     placeholder="  Nome do seu Pet"
+    value=" {{ dog.name }}"
   >
 </div>
 
@@ -21,6 +23,7 @@
     <input 
       type="date" 
       name="birth"
+      value=" {{ dog.birth }}"
     >
 </div>
 
@@ -30,6 +33,7 @@
     type="text" 
     name="breed" 
     placeholder="  Raça"
+    value=" {{ dog.breed }}"
   >
 </div>
 
@@ -42,6 +46,9 @@
       name="gender" 
       checked="checked" 
       value="M"
+      {% if gender == 'M' %}
+        checked
+      {% endif %}
     >Masculino
   </span>
 
@@ -51,6 +58,9 @@
       name="gender" 
       checked="checked" 
       value="F"
+      {% if dog.gender == 'F' %}
+        checked
+      {% endif %}
     >Feminino
   </span>
 
@@ -62,6 +72,7 @@
     type="text" 
     name="abiliity" 
     placeholder="  separe as habilidades por virgula"
+    value=" {{ dog.abiliity }}"
   >
 </div>
 
@@ -70,6 +81,7 @@
   <input 
     type="date" 
     name="vaccine"
+    value=" {{ dog.vaccine }}"
   >
 </div>
 

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('./data.json');
-const { age } = require('./utils');
+const { age, date } = require('./utils');
 
 exports.show = function(request, response) {
 
@@ -58,4 +58,43 @@ exports.post = function(request, response) {
 
 }
 
-// org.kde.Spectacle
+exports.edit = function(request, response) {
+  const { id } = request.params
+
+  const foundDog = data.dogs.find( function(dog) {
+    return id == dog.id;
+  });
+
+  if (!foundDog) return response.send('Pet não encontrado');
+
+  const dog = {
+    ...foundDog,
+    birth: date(foundDog.birth)
+  }
+
+  return response.render('dogs/edit', { dog });
+}
+
+exports.put = function(request, response) {
+  const { id } = request.body;
+  const foundDog = data.dogs.find( function(dog) {
+    return id == dog.id
+  });
+
+  if(!foundDog) return response.send('Pet não encontrado');
+
+  const dog = {
+    ...foundDog,
+    ...request.body,
+    birth: Date.parse(request.body)
+  }
+
+  data.dogs[id - 1] = dog;
+
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {
+    if(err) return response.send('erro na ecrita do arquivo')
+  });
+
+  return response.redirect(`/dogs/${id}`);
+
+}
