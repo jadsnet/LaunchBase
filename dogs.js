@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('./data.json');
-const { age, date } = require('./utils');
+const { age, date, date_v } = require('./utils');
 
 exports.show = function(request, response) {
 
@@ -15,10 +15,9 @@ exports.show = function(request, response) {
 
   const dog = {
     ...foundDog,
-    // vaccine:  new Intl.DateTimeFormat("pt-BR").format(foundDog.vaccine),
     age: age(foundDog.birth),
-    abiliity: foundDog.abiliity.split(",")
-
+    abiliity: foundDog.abiliity.split(","),
+    vaccine: date_v(foundDog.vaccine)
   }
 
   return response.render('dogs/show', { dog });
@@ -35,8 +34,9 @@ exports.post = function(request, response) {
 
   let { avatar_url, name, birth, abiliity, breed, gender, vaccine } = request.body
 
+  vaccine = Number(Date.parse(vaccine));
   birth = Date.parse(birth);  
-  const id = Number(data.dogs.length + 1)
+  const id = Number(data.dogs.length + 1);
 
   data.dogs.push({
     id,
@@ -69,30 +69,31 @@ exports.edit = function(request, response) {
 
   const dog = {
     ...foundDog,
-    birth: date(foundDog.birth)
+    birth: date(foundDog.birth),
+    vaccine: date(foundDog.vaccine)
   }
 
   return response.render('dogs/edit', { dog });
 }
 
 exports.put = function(request, response) {
-  const { id } = request.body;
+  const { id } = request.body
   const foundDog = data.dogs.find( function(dog) {
     return id == dog.id
   });
 
-  if(!foundDog) return response.send('Pet não encontrado');
+  if(!foundDog) return response.send('Pet ___ encontrado');
 
   const dog = {
     ...foundDog,
     ...request.body,
-    birth: Date.parse(request.body)
+    birth: Date.parse(request.body.birth)
   }
 
-  data.dogs[id - 1] = dog;
+  data.dogs[id - 1] = dog
 
   fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {
-    if(err) return response.send('erro na ecrita do arquivo')
+    if(err) return response.send('Erro na escrita do arquivo')
   });
 
   return response.redirect(`/dogs/${id}`);

@@ -207,7 +207,7 @@ button[type="submit"], a.button {
   filter: brightness(100%);
 }
 
-button[type="submit"], a.button:hover {
+button[type="submit"]:hover {
   filter: brightness(77%);
 }
 

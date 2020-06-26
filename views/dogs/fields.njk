@@ -23,7 +23,7 @@
     <input 
       type="date" 
       name="birth"
-      value=" {{ dog.birth }}"
+      value="{{ dog.birth }}"
     >
 </div>
 
@@ -44,9 +44,8 @@
     <input 
       type="radio" 
       name="gender" 
-      checked="checked" 
       value="M"
-      {% if gender == 'M' %}
+      {% if dog.gender == 'M' %}
         checked
       {% endif %}
     >Masculino
@@ -55,8 +54,7 @@
   <span>
     <input 
       type="radio" 
-      name="gender" 
-      checked="checked" 
+      name="gender"
       value="F"
       {% if dog.gender == 'F' %}
         checked
@@ -72,7 +70,7 @@
     type="text" 
     name="abiliity" 
     placeholder="  separe as habilidades por virgula"
-    value=" {{ dog.abiliity }}"
+    value="{{ dog.abiliity }}"
   >
 </div>
 
@@ -81,7 +79,7 @@
   <input 
     type="date" 
     name="vaccine"
-    value=" {{ dog.vaccine }}"
+    value="{{ dog.vaccine }}"
   >
 </div>
 

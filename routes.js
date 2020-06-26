@@ -3,7 +3,7 @@ const routes = express.Router();
 const dogs = require('./dogs');
 
 routes.get('/', function(request, response) {
-  return response.redirect('dogs');
+  return response.redirect('/dogs');
 });
 
 routes.get('/dogs', function(request, response) {
