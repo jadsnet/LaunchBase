@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap');
 :root {
-  --texto: rgb(54, 26, 82);
-  --texto-claro: rgb(122, 84, 153);
-  --fundo: rgb(29, 7, 37);
+  --texto: rgb(184, 149, 219);
+  --texto-claro: rgb(237, 213, 255);
+  --fundo: rgb(16, 3, 20);
+  --frente: rgb(26, 7, 34);
+  --botoes: rgb(110, 16, 139);
 }
 * {
   margin: 0;
@@ -15,7 +17,7 @@ body {
 }
 
 header {
-  background-color: rgb(211, 210, 210);
+  background-color: var(--frente);
   width: 90%;
   margin: 20px auto;
   padding: 32px;
@@ -23,7 +25,7 @@ header {
   padding: 32px;
   box-sizing: border-box;
   border-radius: 12px;
-  box-shadow: 0px 4px 8px 5px rgb(12, 8, 20);
+  box-shadow: 10px 8px 8px 1px rgba(0, 0, 0, 0.671);
 }
 .links {
   font-size: 36px;
@@ -34,6 +36,7 @@ header {
 }
 
 .links a {
+  color: var(--texto-claro);
   font-weight: normal;
   text-decoration: none;
   position: relative;
@@ -69,14 +72,14 @@ header {
   min-width: 500px;
   height: 820px;
   margin: 120px auto;
-  background-color: rgb(211, 210, 210);
+  background-color: var(--frente);
   display: grid;
   grid-template-columns: 1fr 1fr;
 
   opacity: 0;
   animation: aparecer 1050ms ease-in-out;
   animation-fill-mode: forwards;
-  box-shadow: 0px 4px 8px 5px rgb(12, 8, 20);
+  box-shadow: 10px 8px 8px 1px rgba(0, 0, 0, 0.671);
 }
 
 @keyframes aparecer {
@@ -110,6 +113,7 @@ header {
 
 .details h3,
 .details .item div:nth-child(1) {
+  color: rgb(202, 202, 202);
   font-weight: normal;
   letter-spacing: 0.7px;
   line-height: 24px;
@@ -129,7 +133,7 @@ header {
 }
 
 .details .item span {
-  color: white;
+  color: rgb(219, 218, 218);
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.8px;
@@ -137,10 +141,11 @@ header {
   margin: 10px 8px auto;
   display: inline-block;
   border-radius: 12px;
-  background-color: var(--texto);
+  background-color: var(--botoes);
 }
 
 .details .vacina {
+  color: rgb(218, 216, 216);
   padding: 3px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -174,7 +179,7 @@ input {
   margin: 5px 0 auto;
   outline: none;
   font-weight: bold;
-  color: var(--texto);
+  color: var(--fundo);
   font-size: 18px;
   border-radius: 8px;
 }
@@ -196,11 +201,11 @@ button[type="submit"], a.button {
   padding: 8px 16px;
   margin: 20px auto;
   width: 100%;
-  color: white;
+  color: rgb(216, 216, 216);
   font-size: 22px;
   font-weight: bold;
   letter-spacing: 2px;
-  background-color: var(--texto);
+  background-color: var(--botoes);
   outline: none;
   border-radius: 12px;
   transition: 200ms ease-in-out;
@@ -208,9 +213,8 @@ button[type="submit"], a.button {
 }
 
 button[type="submit"]:hover {
-  filter: brightness(77%);
+  filter: brightness(70%);
 }
-
 a.button {
   justify-content: center;
   align-items: center;
@@ -220,8 +224,14 @@ a.button {
   text-align: center;
   letter-spacing: 3px;
   text-transform: uppercase;
+  transition: 200ms ease-in-out;
+  filter: brightness(100%);
 }
+a.button:hover {
+  filter: brightness(77%);
+}
+
 a.button#delete {
-  background-color: rgb(82, 26, 63);
+  background-color: rgb(98, 24, 70);
 }
 
