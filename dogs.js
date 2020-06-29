@@ -82,7 +82,7 @@ exports.put = function(request, response) {
     return id == dog.id
   });
 
-  if(!foundDog) return response.send('Pet ___ encontrado');
+  if(!foundDog) return response.send('Pet não encontrado');
 
   const dog = {
     ...foundDog,
