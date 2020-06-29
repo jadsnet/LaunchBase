@@ -12,7 +12,8 @@
   border: none;
 }
 body {
-  background-color: var(--fundo);
+  background-image: radial-gradient( circle farthest-corner at 36.5% 21%,  rgba(48,11,81,1) 0%, rgba(13,1,26,1) 80.2%, rgba(13,1,26,1) 96.5% );
+  /* background-color: var(--fundo); */
   font-family: 'Roboto', sans-serif;
 }
 
