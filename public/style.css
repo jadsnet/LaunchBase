@@ -71,7 +71,7 @@ header {
 .card {
   width: 1200px;
   min-width: 500px;
-  height: 820px;
+  height: 890px;
   margin: 120px auto;
   background-color: var(--frente);
   display: grid;
@@ -201,7 +201,7 @@ input::placeholder {
 
 button[type="submit"], a.button {
   padding: 8px 16px;
-  margin: 20px auto;
+  margin: 20px 0 auto;
   width: 100%;
   color: rgb(216, 216, 216);
   font-size: 22px;
@@ -234,6 +234,10 @@ a.button:hover {
 }
 
 a.button#delete {
+  background-color: rgb(98, 24, 70);
+}
+
+#form-delete button[type="submit"] {
   background-color: rgb(98, 24, 70);
 }
 

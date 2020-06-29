@@ -99,3 +99,21 @@ exports.put = function(request, response) {
   return response.redirect(`/dogs/${id}`);
 
 }
+
+exports.delete = function(request, response) {
+  const { id } = request.body
+
+  const filteredDogs = data.dogs.filter(function(dog) {
+
+    return dog.id != id
+  })
+
+  data.dogs = filteredDogs
+
+  fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+    if(err) return response.send('Erro na escrita do arquivo!')
+
+    return response.redirect('/dogs')
+  })
+
+}

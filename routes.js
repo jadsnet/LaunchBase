@@ -23,6 +23,8 @@ routes.post('/dogs', dogs.post);
 
 routes.put('/dogs', dogs.put);
 
+routes.delete('/dogs', dogs.delete);
+
 
 routes.get('/members', function(request, response) {
   return response.send('members');
