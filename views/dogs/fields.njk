@@ -1,40 +1,48 @@
 <div class="item">
   <div>Foto</div>
-  <input 
-    type="url" 
-    name="avatar_url" 
-    placeholder="http://"
-    value="{{ dog.avatar_url }}"
-  >
+  <div>
+    <input 
+      type="url" 
+      name="avatar_url" 
+      placeholder="http://"
+      value="{{ dog.avatar_url }}"
+    >
+  </div>
 </div>
 
 <div class="item">
   <div>Nome</div>
-  <input 
-    type="text" 
-    name="name" 
-    placeholder="Nome do seu Pet"
-    value="{{ dog.name }}"
-  >
+  <div>
+    <input 
+      type="text" 
+      name="name" 
+      placeholder="Nome do seu Pet"
+      value="{{ dog.name }}"
+    >
+  </div>  
 </div>
 
 <div class="item">
   <div>Data de Nascimento</div>
+  <div>
     <input 
       type="date" 
       name="birth"
       value="{{ dog.birth }}"
     >
+  </div>    
 </div>
 
 <div class="item">
-<div>Raça</div>
-  <input 
-    type="text" 
-    name="breed" 
-    placeholder="Raça"
-    value="{{ dog.breed }}"
-  >
+  <div>Raça</div>
+  <div>
+    <input 
+      type="text" 
+      name="breed" 
+      placeholder="Raça"
+      value="{{ dog.breed }}"
+    >
+  </div>  
 </div>
 
 <div class="item">
@@ -66,21 +74,25 @@
 
 <div class="item">
   <div>Habilidades</div>
-  <input 
-    type="text" 
-    name="abiliity" 
-    placeholder="separe as habilidades por virgula"
-    value="{{ dog.abiliity }}"
-  >
+  <div>
+    <input 
+      type="text" 
+      name="abiliity" 
+      placeholder="separe as habilidades por virgula"
+      value="{{ dog.abiliity }}"
+    >
+  </div>  
 </div>
 
 <div class="item">
-<div>Ultima Vacinação</div>
-  <input 
-    type="date" 
-    name="vaccine"
-    value="{{ dog.vaccine }}"
-  >
+  <div>Ultima Vacinação</div>
+  <div>
+    <input 
+      type="date" 
+      name="vaccine"
+      value="{{ dog.vaccine }}"
+    >
+  </div>  
 </div>
 
 <button type="submit">Salvar</button>

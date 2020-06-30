@@ -2,7 +2,7 @@
 
 {% block content %}
   <div class="card">
-    <section class="avatar" style="max-height: 820px; background: url({{ dog.avatar_url }}) no-repeat center center / cover" ></section>
+    <section class="avatar" style="max-height: 890px; background: url({{ dog.avatar_url }}) no-repeat center center / cover" ></section>
     
     <section class="details">
       <h3>Detalhes</h3>
@@ -40,14 +40,15 @@
           <div>Ultima vacina</div>
           <div>{{ dog.vaccine }}</div>          
         </section>
-        <section>
+        {# <section>
           <img src="/triangle.svg" alt="vacina">
-        </section>
+        </section> #}
 
         <a href="/dogs/{{ dog.id }}/edit" class="button">Editar</a>
-        {# <a href="#" class="button" id="delete">Deletar</a> #}
+       
 
       </div>
+      
     </section>
   </div>
 

@@ -1,4 +1,8 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap');
+
+
 :root {
   --texto: rgb(184, 149, 219);
   --texto-claro: rgb(237, 213, 255);
@@ -146,28 +150,26 @@ header {
 }
 
 .details .vacina {
+  margin-top: 20px;
   color: rgb(218, 216, 216);
   padding: 3px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 10px;
- 
+  
 }
 
 .details .vacina section div:nth-child(2) {
   margin-top: 5px;
-  font-size: 23px;
+  font-size: 43px;
   font-weight: bold;
   color: var(--texto);
   letter-spacing: 0.8px;
 
 }
 
-.vacina section img {
+.vacina section {
   width: 100%;
   height: 180px;
-
+  margin: 30px 20px auto;
+  font-size: 32px;
   box-sizing: border-box;
 
 }

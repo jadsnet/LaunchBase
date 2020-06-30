@@ -7,7 +7,7 @@ routes.get('/', function(request, response) {
 });
 
 routes.get('/dogs', function(request, response) {
-  return response.render('dogs/index');
+  return response.render('dogs/index.njk');
 });
 
 
@@ -31,3 +31,4 @@ routes.get('/members', function(request, response) {
 });
 
 module.exports = routes;
+
