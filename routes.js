@@ -6,9 +6,7 @@ routes.get('/', function(request, response) {
   return response.redirect('/dogs');
 });
 
-routes.get('/dogs', function(request, response) {
-  return response.render('dogs/index.njk');
-});
+routes.get('/dogs', dogs.index);
 
 
 routes.get('/dogs/create', function(request, response) {

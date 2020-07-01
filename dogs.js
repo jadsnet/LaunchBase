@@ -2,6 +2,10 @@ const fs = require('fs');
 const data = require('./data.json');
 const { age, date, date_v } = require('./utils');
 
+exports.index = function(resquest, response) {
+  return response.render('dogs/index', { dogs: data.dogs })
+}
+
 exports.show = function(request, response) {
 
   const { id } = request.params
