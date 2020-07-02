@@ -1,6 +1,6 @@
 const fs = require('fs');
-const data = require('./data.json');
-const { age, date, date_v } = require('./utils');
+const data = require('../data.json');
+const { age, date, date_v } = require('../utils');
 
 exports.index = function(resquest, response) {
   return response.render('dogs/index', { dogs: data.dogs })
@@ -25,6 +25,10 @@ exports.show = function(request, response) {
   }
 
   return response.render('dogs/show', { dog });
+}
+
+exports.create = function(request, response) {
+  return response.render('dogs/create');
 }
 
 exports.post = function(request, response) {
@@ -82,8 +86,13 @@ exports.edit = function(request, response) {
 
 exports.put = function(request, response) {
   const { id } = request.body
-  const foundDog = data.dogs.find( function(dog) {
-    return id == dog.id
+  let index = 0
+
+  const foundDog = data.dogs.find( function(dog, foundIndex) {
+    if(id == dog.id) {
+      index = foundIndex
+      return true
+    }
   });
 
   if(!foundDog) return response.send('Pet não encontrado');
@@ -91,10 +100,11 @@ exports.put = function(request, response) {
   const dog = {
     ...foundDog,
     ...request.body,
-    birth: Date.parse(request.body.birth)
+    birth: Date.parse(request.body.birth),
+    id: Number(request.body.id)
   }
 
-  data.dogs[id - 1] = dog
+  data.dogs[index] = dog
 
   fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {
     if(err) return response.send('Erro na escrita do arquivo')

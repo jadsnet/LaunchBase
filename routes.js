@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = express.Router();
-const dogs = require('./dogs');
+const dogs = require('./controllers/dogs');
 
 routes.get('/', function(request, response) {
   return response.redirect('/dogs');
@@ -9,9 +9,7 @@ routes.get('/', function(request, response) {
 routes.get('/dogs', dogs.index);
 
 
-routes.get('/dogs/create', function(request, response) {
-  return response.render('dogs/create');
-});
+routes.get('/dogs/create', dogs.create);
 
 routes.get('/dogs/:id', dogs.show);
 
