@@ -1,0 +1,32 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="card table-container">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>Pets</th>
+          <th>Habilidades</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        {% for dog in dogs %}
+          <tr>
+            <td>
+              <span style="background-image: url({{ dog.avatar_url}})"></span>
+              {{ dog.name}}
+            </td>
+            <td>{{ dog.abiliity}}</td>
+            <td><a href="/dogs/{{ dog.id }}">Ver</a></td>
+          </tr>
+        {% endfor %}
+
+
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}

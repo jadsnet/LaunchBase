@@ -281,8 +281,8 @@ tbody tr td:first-child span {
   background-position: center;
   background-size: cover;
   border-radius: 50%;
-  box-shadow: 3px 1px 6px -4px black;
-  border: 2px solid white
+  box-shadow: 7px 5px 4px -3px rgb(4, 0, 8);
+  border: 3px solid white
 }
 
 tbody tr td:last-child a {

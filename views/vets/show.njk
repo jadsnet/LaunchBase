@@ -1,0 +1,55 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="card">
+    <section class="avatar" style="max-height: 890px; background: url({{ dog.avatar_url }}) no-repeat center center / cover" ></section>
+    
+    <section class="details">
+      <h3>Detalhes</h3>
+
+      <div class="item">
+        <div>Nome do seu Pet</div>
+        <div>{{ dog.name }}</div>
+      </div>
+
+      <div class="item">
+        <div>Genero</div>
+        <div>{{ "Macho" if dog.gender == "M" else "Fêmea" }}</div>
+      </div>
+
+      <div class="item">
+        <div>Raça</div>
+        <div>{{ dog.breed }}</div>
+      </div>
+
+      <div class="item">
+        <div>Habilidades</div>
+        {% for habilidade in dog.abiliity %}
+          <span>{{ habilidade }}</span>
+        {% endfor %}
+      </div>
+
+      <div class="item">
+        <div>Idade</div>
+        <div>{{ dog.age }}  Anos</div>
+      </div>
+
+      
+      <div class="vacina">
+        <section>
+          <div>Ultima vacina</div>
+          <div>{{ dog.vaccine }}</div>          
+        </section>
+        {# <section>
+          <img src="/triangle.svg" alt="vacina">
+        </section> #}
+
+        <a href="/dogs/{{ dog.id }}/edit" class="button">Editar</a>
+       
+
+      </div>
+      
+    </section>
+  </div>
+
+{% endblock content %}
