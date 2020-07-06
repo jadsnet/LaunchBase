@@ -1,5 +1,16 @@
 {
-  "vets": [],
+  "vets": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "name": "Ana Clara",
+      "telephone": "13 99857-8475",
+      "email": "clara@gmail.com",
+      "birth": 894931200000,
+      "gender": "F",
+      "created_at": 1593998252820
+    }
+  ],
   "dogs": [
     {
       "id": 1,

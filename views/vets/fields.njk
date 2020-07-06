@@ -5,7 +5,7 @@
       type="url" 
       name="avatar_url" 
       placeholder="http://"
-      value="{{ dog.avatar_url }}"
+      value="{{ vet.avatar_url }}"
     >
   </div>
 </div>
@@ -17,7 +17,30 @@
       type="text" 
       name="name" 
       placeholder="Nome do seu Pet"
-      value="{{ dog.name }}"
+      value="{{ vet.name }}"
+    >
+  </div>  
+</div>
+
+<div class="item">
+  <div>Contato</div>
+  <div>
+    <input 
+      type="text" 
+      name="telephone" 
+      placeholder="00 - 0000-0000"
+      value="{{ vet.telephone }}"
+    >
+  </div>  
+</div>
+
+<div class="item">
+  <div>E-mail</div>
+  <div>
+    <input 
+      type="email" 
+      name="email"
+      value="{{ vet.email }}"
     >
   </div>  
 </div>
@@ -28,21 +51,9 @@
     <input 
       type="date" 
       name="birth"
-      value="{{ dog.birth }}"
+      value="{{ vet.birth }}"
     >
   </div>    
-</div>
-
-<div class="item">
-  <div>Raça</div>
-  <div>
-    <input 
-      type="text" 
-      name="breed" 
-      placeholder="Raça"
-      value="{{ dog.breed }}"
-    >
-  </div>  
 </div>
 
 <div class="item">
@@ -53,7 +64,7 @@
       type="radio" 
       name="gender" 
       value="M"
-      {% if dog.gender == 'M' %}
+      {% if vet.gender == 'M' %}
         checked
       {% endif %}
     >Masculino
@@ -64,35 +75,12 @@
       type="radio" 
       name="gender"
       value="F"
-      {% if dog.gender == 'F' %}
+      {% if vet.gender == 'F' %}
         checked
       {% endif %}
     >Feminino
   </span>
 
-</div>
-
-<div class="item">
-  <div>Habilidades</div>
-  <div>
-    <input 
-      type="text" 
-      name="abiliity" 
-      placeholder="separe as habilidades por virgula"
-      value="{{ dog.abiliity }}"
-    >
-  </div>  
-</div>
-
-<div class="item">
-  <div>Ultima Vacinação</div>
-  <div>
-    <input 
-      type="date" 
-      name="vaccine"
-      value="{{ dog.vaccine }}"
-    >
-  </div>  
 </div>
 
 <button type="submit">Salvar</button>

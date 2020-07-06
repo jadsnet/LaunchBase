@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('../data.json');
-const { age, date, date_v } = require('../utils');
+const { date_nasc, date, date_v } = require('../utils');
 
 exports.index = function(resquest, response) {
   return response.render('vets/index', { vets: data.vets })
@@ -19,7 +19,8 @@ exports.show = function(request, response) {
 
   const vet = {
     ...foundVet,
-    age: age(foundVet.birth)
+    birth: date(foundVet.birth).birthDay,
+    created_at: date_v(foundVet.created_at)
   }
 
   return response.render('vets/show', { vet });
@@ -38,27 +39,27 @@ exports.post = function(request, response) {
     }
   }
 
-  let { avatar_url, name, birth, abiliity, breed, gender, vaccine } = request.body
+  
+  birth = Date.parse(request.body.birth);  
+  const created_at = Date.now()
+  let id = 1
+  const lastVet = data.vets[data.vets.length -1]
 
-  vaccine = Number(Date.parse(vaccine));
-  birth = Date.parse(birth);  
-  const id = Number(data.vets.length + 1);
+  if(lastVet) {
+    id = lastVet.id + 1
+  }
 
   data.vets.push({
     id,
-    avatar_url,
-    name,
+    ...request.body,
     birth,
-    breed,
-    abiliity,
-    gender,
-    vaccine
+    created_at
   });
 
   fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {
     if(err) return response.send('Erro na escrita do arquivo');
 
-    return response.redirect('/vets');
+    return response.redirect(`/vets/${id}`);
     
   })
 
@@ -75,8 +76,7 @@ exports.edit = function(request, response) {
 
   const vet = {
     ...foundVet,
-    birth: date(foundVet.birth),
-    vaccine: date(foundVet.vaccine)
+    birth: date_nasc(foundVet.birth)
   }
 
   return response.render('vets/edit', { vet });

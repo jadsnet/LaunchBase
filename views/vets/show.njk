@@ -2,49 +2,44 @@
 
 {% block content %}
   <div class="card">
-    <section class="avatar" style="max-height: 890px; background: url({{ dog.avatar_url }}) no-repeat center center / cover" ></section>
+    <section class="avatar" style="max-height: 890px; background: url({{ vet.avatar_url }}) no-repeat center center / cover" ></section>
     
     <section class="details">
       <h3>Detalhes</h3>
 
       <div class="item">
-        <div>Nome do seu Pet</div>
-        <div>{{ dog.name }}</div>
+        <div>Nome do Veterinário</div>
+        <div>{{ vet.name }}</div>
       </div>
 
       <div class="item">
         <div>Genero</div>
-        <div>{{ "Macho" if dog.gender == "M" else "Fêmea" }}</div>
+        <div>{{ "Masculino" if vet.gender == "M" else "Feminino" }}</div>
       </div>
 
       <div class="item">
-        <div>Raça</div>
-        <div>{{ dog.breed }}</div>
+        <div>Email</div>
+        <div>{{ vet.email }}</div>
       </div>
 
       <div class="item">
-        <div>Habilidades</div>
-        {% for habilidade in dog.abiliity %}
-          <span>{{ habilidade }}</span>
-        {% endfor %}
+        <div>Telefone</div>
+        <div>{{ vet.telephone }}</div>
       </div>
 
       <div class="item">
         <div>Idade</div>
-        <div>{{ dog.age }}  Anos</div>
+        <div>{{ vet.age }}  Anos</div>
       </div>
 
       
       <div class="vacina">
         <section>
-          <div>Ultima vacina</div>
-          <div>{{ dog.vaccine }}</div>          
+          <div>Cosnosco desde: </div>
+          <div>{{ vet.created_at }}</div>          
         </section>
-        {# <section>
-          <img src="/triangle.svg" alt="vacina">
-        </section> #}
-
-        <a href="/dogs/{{ dog.id }}/edit" class="button">Editar</a>
+        
+        <a href="/vets/{{ vet.id }}/edit" class="button">Editar</a>
        
 
       </div>

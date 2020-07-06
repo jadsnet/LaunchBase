@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('../data.json');
-const { age, date, date_v } = require('../utils');
+const { age, date, date_nasc, date_v } = require('../utils');
 
 exports.index = function(resquest, response) {
   return response.render('dogs/index', { dogs: data.dogs })
@@ -44,23 +44,25 @@ exports.post = function(request, response) {
 
   vaccine = Number(Date.parse(vaccine));
   birth = Date.parse(birth);  
-  const id = Number(data.dogs.length + 1);
+ 
+  let id = 1
+  const lastDog = data.dogs[data.dogs.length -1]
+
+  if(lastDog) {
+    id = lastDog.id + 1
+  }
 
   data.dogs.push({
     id,
-    avatar_url,
-    name,
+    ...request.body,
     birth,
-    breed,
-    abiliity,
-    gender,
     vaccine
   });
 
   fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {
     if(err) return response.send('Erro na escrita do arquivo');
 
-    return response.redirect('/dogs');
+    return response.redirect(`/dogs/${id}`);
     
   })
 
@@ -77,8 +79,8 @@ exports.edit = function(request, response) {
 
   const dog = {
     ...foundDog,
-    birth: date(foundDog.birth),
-    vaccine: date(foundDog.vaccine)
+    birth: date_nasc(foundDog.birth),
+    vaccine: date_nasc(foundDog.vaccine)
   }
 
   return response.render('dogs/edit', { dog });

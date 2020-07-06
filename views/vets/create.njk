@@ -1,13 +1,13 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-  <form class="card" method="POST" action="/dogs">
-    <section class="avatar" style="max-height: 890px; background: url(http://source.unsplash.com/collection/3336195/400x400) no-repeat center center / cover" ></section>
+  <form class="card" method="POST" action="/vets">
+    <section class="avatar" style="max-height: 890px; background: url(https://images.unsplash.com/photo-1516386408840-d718a820a05c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60/400x400) no-repeat center center / cover" ></section>
     
     <section class="details">
-      <h3>Novo Pet</h3>
+      <h3>Novo Veterinário</h3>
 
-      {% include 'dogs/fields.njk'%}
+      {% include 'vets/fields.njk'%}
 
     </section>
   </form>

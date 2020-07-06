@@ -213,6 +213,7 @@ button[type="submit"], a.button {
   border-radius: 12px;
   transition: 200ms ease-in-out;
   filter: brightness(100%);
+  text-decoration: none;
 }
 
 button[type="submit"]:hover {
@@ -285,7 +286,8 @@ tbody tr td:first-child span {
   border: 3px solid white
 }
 
-tbody tr td:last-child a {
+tbody tr td:last-child a,
+.table-container a {
   color: var(--texto-claro);
   background-color: var(--botoes);
   padding: 8px 16px;
@@ -295,12 +297,24 @@ tbody tr td:last-child a {
   border-radius: 6px;
   font-weight: bold;
   transition: 250ms ease-in-out;
+  filter: brightness(100%);
+
 }
 
 tbody tr td:last-child a:hover {
-  filter: brightness(120%);
+  filter: brightness(145%);
+}
+.table-container a:hover {
+  filter: brightness(145%);
 }
 
 .table-container thead th:last-child, td:last-child {
   text-align: center;
+}
+/* === BOTÃO NOVO/ADICIONAR ===*/
+
+.table-container > a {
+  margin-bottom: 12px;
+ display: inline-block;
+
 }

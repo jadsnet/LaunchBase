@@ -2,10 +2,11 @@
 
 {% block content %}
   <div class="card table-container">
+    <a href="/dogs/create">Novo</a>
     <table width="100%">
       <thead>
         <tr>
-          <th>Pets</th>
+          <th>Cachorros</th>
           <th>Habilidades</th>
           <th>Ação</th>
         </tr>
@@ -16,14 +17,15 @@
         {% for dog in dogs %}
           <tr>
             <td>
-              <span style="background-image: url({{ dog.avatar_url}})"></span>
+              <span style="background-image: url({{ dog.avatar_url }})"></span>
               {{ dog.name}}
             </td>
-            <td>{{ dog.abiliity}}</td>
-            <td><a href="/dogs/{{ dog.id }}">Ver</a></td>
+            <td>{{ dog.abiliity }}</td>
+            <td>
+              <a href="/dogs/{{ dog.id }}">Ver</a>
+            </td>
           </tr>
         {% endfor %}
-
 
       </tbody>
     </table>
